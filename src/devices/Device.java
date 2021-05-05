@@ -23,7 +23,5 @@ abstract class Device {
                 '}';
     }
 
-    public void turnOn() {
-        this.turnedOn = true;
-    }
+    abstract public void turnOn();
 }

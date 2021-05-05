@@ -19,4 +19,9 @@ public class Phone extends Device {
                 ", model='" + model + '\'' +
                 '}';
     }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Włączono urządzenie.");
+    }
 }

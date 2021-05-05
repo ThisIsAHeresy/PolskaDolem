@@ -14,14 +14,19 @@ public class Car extends Device {
         this.yearOfProduction = yearOfProduction;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Car{" +
+//                "producer='" + producer + '\'' +
+//                ", model='" + model + '\'' +
+//                ", mileage=" + mileage +
+//                ", value=" + value +
+//                '}';
+//    }
+
     @Override
-    public String toString() {
-        return "Car{" +
-                "producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                ", mileage=" + mileage +
-                ", value=" + value +
-                '}';
+    public void turnOn() {
+        System.out.println("Włączono urządzenie.");
     }
 
 }
