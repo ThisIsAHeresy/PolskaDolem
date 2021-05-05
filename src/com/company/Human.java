@@ -1,16 +1,22 @@
 package com.company;
 
-import devices.Car;
-import devices.Phone;
+import com.company.creatures.Animal;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
-public class Human {
+public class Human implements Salable{
     String firstName;
     String lastName;
-    Animal pet;
-    Phone mobilePhone;
+    public Animal pet;
+    public Phone mobilePhone;
+    public Double cash;
 
     public Car getCar() {
         return car;
+    }
+
+    public void setCar() {
+        this.car = null;
     }
 
     public void setCar(Car car) {
@@ -45,4 +51,9 @@ public class Human {
         this.salary = salary;
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Nielegalna operacja.");
+        return;
+    }
 }
