@@ -17,7 +17,11 @@ public class Animal {
             this.weight += 2;
         }
     }
-    
+
+    public String toString(){
+        return name;
+    }
+
     void spacer() {
         if (this.weight < 0) {
             System.out.println(this.name + " is dead");

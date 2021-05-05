@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Human {
     String firstName;
     String lastName;
@@ -21,7 +24,9 @@ public class Human {
             System.out.println("Start studying, find a new job or try getting a raise, idk, you cannot buy that car.");
         }
     }
-
+    public String toString(){
+        return this.firstName + " " + this.lastName + " with a pet " + this.pet + " and a phone number " + this.mobilePhone;
+    }
     private Car car;
     private Double salary;
 

@@ -1,5 +1,7 @@
 package com.company;
 
+import devices.Car;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,16 +22,10 @@ public class Main {
 	   dog.spacer();
 		dog.spacer();
 		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-		dog.spacer();
-    }
+		Car car1 = new Car("OwO", "Avi", 3241);
+//		Car car2 = new Car("OwOwO", "Renault");
+//		Car car3 = new Car("OwO", "Avi");
+		System.out.println(car1);
+
+	}
 }

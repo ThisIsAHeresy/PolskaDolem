@@ -1,8 +1,16 @@
-package com.company;
+package devices;
 
-public class Phone {
+public class Phone extends Device {
     String producer;
     String model;
+    Integer yearOfProduction;
+
+    public Phone(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
+        this.producer = producer;
+        this.model = model;
+        this.yearOfProduction = yearOfProduction;
+    }
 
     @Override
     public String toString() {

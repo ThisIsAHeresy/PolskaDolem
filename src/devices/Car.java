@@ -1,10 +1,18 @@
-package com.company;
+package devices;
 
-public class Car {
-    public final String producer;
-    public final String model;
+public class Car extends Device {
+    public String producer;
+    public String model;
+    public Integer yearOfProduction;
     Double mileage;
-    Integer value;
+    public Integer value;
+
+    public Car(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
+        this.producer = producer;
+        this.model = model;
+        this.yearOfProduction = yearOfProduction;
+    }
 
     @Override
     public String toString() {
@@ -16,8 +24,4 @@ public class Car {
                 '}';
     }
 
-    public Car(String model, String producer) {
-        this.model = model;
-        this.producer = producer;
-    }
 }
