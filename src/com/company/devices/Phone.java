@@ -3,10 +3,17 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Salable;
 
+import java.lang.reflect.Array;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+
 public class Phone extends Device implements Rechargable, Salable {
     String producer;
     String model;
     Integer yearOfProduction;
+
+    static final URL default_server = new URL("https", "example.com", 433, "app");
 
     public Phone(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
@@ -36,6 +43,28 @@ public class Phone extends Device implements Rechargable, Salable {
     @Override
     public double getChargeLevel() {
         return 0;
+    }
+
+    public void installAnnApp(String name) {
+        this.installAnnApp(name, "new");
+    }
+
+    public void installAnnApp(String name, String version) {
+        this.installAnnApp(name, version, default_server);
+    }
+
+    public void installAnnApp(String name, String version, String address) {
+        System.out.println("Installed " + name + " with version " + toString(version) + " and address " + address + " successfully");
+    }
+
+    public void installAnnApp(String[] names) {
+        for (String name:names) {
+            this.installAnnApp(name);
+        }
+    }
+
+    public void installAnnApp(URL url) {
+        System.out.println("Installed " + url + " successfully");
     }
 
     @Override

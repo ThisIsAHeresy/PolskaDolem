@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.cars.Disel;
+import com.company.cars.LPG;
 import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Pet;
@@ -19,18 +21,20 @@ public class Main {
 	   dog.spacer();
 		dog.spacer();
 		dog.spacer();
-		Car car1 = new Car("OwO", "Avi", 3241);
+		//Car car1 = new Car("OwO", "Avi", 3241);
 //		Car car2 = new Car("OwOwO", "Renault");
 //		Car car3 = new Car("OwO", "Avi");
-		System.out.println(car1);
-		Human me = new Human();
+		//System.out.println(car1);
+		Human me = new Human(3);
 		Phone samsung = new Phone("samsung", "woowowow", 1922);
 		me.mobilePhone = samsung;
 		me.cash = 0.0;
-		Human bro = new Human();
+		Human bro = new Human(3);
 		bro.cash = 1000.0;
 		samsung.sell(me, bro, 100.0);
 		samsung.sell(bro, me, 200.0);
+		Disel car1 = new Disel("OwO", "Avi", 32321);
+		LPG car2 = new LPG("WWW", "Avi", 222);
 
 	}
 }
