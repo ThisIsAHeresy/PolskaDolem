@@ -5,12 +5,14 @@ abstract class Device {
     public final String model;
     public final Integer yearOfProduction;
     public boolean turnedOn;
+    public double value;
 
-    protected Device(String producer, String model, Integer yearOfProduction) {
+    protected Device(String producer, String model, Integer yearOfProduction, double value) {
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
         this.turnedOn = false;
+        this.value = value;
     }
 
 

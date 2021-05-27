@@ -3,10 +3,7 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Salable;
 
-import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 
 public class Phone extends Device implements Rechargable, Salable {
     String producer;
@@ -16,7 +13,7 @@ public class Phone extends Device implements Rechargable, Salable {
     static final URL default_server = new URL("https", "example.com", 433, "app");
 
     public Phone(String producer, String model, Integer yearOfProduction) {
-        super(producer, model, yearOfProduction);
+        super(producer, model, yearOfProduction, );
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;

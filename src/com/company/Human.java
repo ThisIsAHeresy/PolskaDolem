@@ -5,6 +5,8 @@ import com.company.creatures.FarmAnimal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
+import java.util.Arrays;
+
 public class Human implements Salable{
     String firstName;
     String lastName;
@@ -37,6 +39,16 @@ public class Human implements Salable{
             if (this.garage[i] == null) return true;
         }
         return false;
+    }
+
+    public double valueOverall() {
+        double counted_value = 0.0;
+        for(int i = 0;i < garage.length;i++) {
+            if (this.garage[i] != null) {
+                counted_value = counted_value + this.garage[i].value;
+            }
+        }
+        return counted_value;
     }
 
     public void setSalary(Double salary) throws Exception {
@@ -72,5 +84,9 @@ public class Human implements Salable{
                 return;
             }
         }
+    }
+
+    public void sortCars() {
+        Arrays.sort(this.garage);
     }
 }

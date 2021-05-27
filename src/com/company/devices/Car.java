@@ -12,8 +12,8 @@ public abstract class Car extends Device implements Salable {
 
     public abstract void refuel();
 
-    public Car(String producer, String model, Integer yearOfProduction) {
-        super(producer, model, yearOfProduction);
+    public Car(String producer, String model, Integer yearOfProduction, Double value) {
+        super(producer, model, yearOfProduction, value);
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
@@ -51,5 +51,9 @@ public abstract class Car extends Device implements Salable {
         seller.cash += price;
         buyer.cash -= price;
         System.out.println("Tranzakcja przebiegła pomyślnie.");
+    }
+
+    public int compareTo(Car car) {
+        return this.yearOfProduction - ((Car) car).yearOfProduction;
     }
 }
