@@ -3,20 +3,25 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Salable;
 
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
 public class Phone extends Device implements Rechargable, Salable {
     String producer;
     String model;
     Integer yearOfProduction;
+    HashSet<Application> applications;
 
-    static final URL default_server = new URL("https", "example.com", 433, "app");
-
-    public Phone(String producer, String model, Integer yearOfProduction) {
-        super(producer, model, yearOfProduction, );
+    public Phone(String producer, String model, Integer yearOfProduction, double value) {
+        super(producer, model, yearOfProduction, value);
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
+        this.applications = new HashSet<Application>();
     }
 
     @Override
@@ -42,23 +47,80 @@ public class Phone extends Device implements Rechargable, Salable {
         return 0;
     }
 
-    public void installAnnApp(String name) {
-        this.installAnnApp(name, "new");
+    //public void installAnnApp(String name) {
+    //    this.installAnnApp(name, "new");
+    //}
+
+    //public void installAnnApp(String name, String version) {
+    //    this.installAnnApp(name, version, default_server);
+    //}
+
+    public void installAnnApp(String name, String version, String address, double price, Human owner) throws Exception {
+        if (owner.cash < price) {
+            throw new Exception("Właściciel nie ma wystarczająco gotówki na koncie.");
+        }
+        applications.add(new Application(name, version, price));
+        owner.cash = owner.cash - price;
     }
 
-    public void installAnnApp(String name, String version) {
-        this.installAnnApp(name, version, default_server);
+    public boolean isInstalled(String app_name) {
+        for (Application application:applications) {
+            if (application.name == app_name) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void installAnnApp(String name, String version, String address) {
-        System.out.println("Installed " + name + " with version " + toString(version) + " and address " + address + " successfully");
-    }
-
-    public void installAnnApp(String[] names) {
-        for (String name:names) {
-            this.installAnnApp(name);
+    public void listFree() {
+        for (Application application:applications) {
+            if (application.price == 0.0) {
+                System.out.println(application.toString());
+            }
         }
     }
+
+    public void alphaApps() {
+        List<String> application_list = new ArrayList<String>();
+        for (Application application:applications) {
+            application_list.add(application.name);
+        }
+        Collections.sort(application_list);
+        for (String application:application_list) {
+            System.out.println(application);
+        }
+    }
+
+    public void priceApps() {
+        List<Double> application_list = new ArrayList<Double>();
+        for (Application application:applications) {
+            application_list.add(application.price);
+        }
+        Collections.sort(application_list);
+        for (Double application:application_list) {
+            System.out.println(application);
+        }
+    }
+
+    public double countCost() {
+        Double sum = 0.0;
+        for (Application application:applications) {
+            sum += application.price;
+        }
+        return sum;
+    }
+
+    public boolean isInstalled(Application app) {
+        return isInstalled(app.name);
+    }
+
+//    public void installAnnApp(String[] names) {
+//        for (String name:names) {
+//            this.installAnnApp(name);
+//        }
+//    }
+
+
 
     public void installAnnApp(URL url) {
         System.out.println("Installed " + url + " successfully");
